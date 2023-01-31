@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:form="sap.ui.layout.form">
+		<form:SimpleForm id="_IDGenSimpleForm1"
+				title="1. {i18n>tipoEmpleado}"
+				minWidth="1024"
+				editable="false"
+				layout="ResponsiveGridLayout">
+			<form:content>
+				<Label id="_IDGenLabel1" text="{i18n>tipo}"/>
+				<Text id="_IDGenText1" text="{=${/_type} === 'interno' ? ${i18n>interno} : ${/_type} === 'autonomo' ? ${i18n>autonomo} : ${i18n>gerente}}"/>
+				<Link id="_IDGenLink1" press="editStepOne" text="{i18n>editar}" />
+			</form:content>
+		</form:SimpleForm>
+		
+		<form:SimpleForm id="_IDGenSimpleForm2"
+				title="2. {i18n>datosEmpleado}"
+				minWidth="1024"
+				editable="false"
+				layout="ResponsiveGridLayout">
+			<form:content>
+				<Label id="_IDGenLabel2" text="{i18n>nombre}"/>
+				<Text id="_IDGenText2" text="{/FirstName}"/>
+				<Label id="_IDGenLabel3" text="{i18n>apellidos}"/>
+				<Text id="_IDGenText3" text="{/LastName}"/>
+				<Label id="_IDGenLabel4" text="{= ${/_type} === 'autonomo' ? ${i18n>CIF} : ${i18n>DNI}}"/>
+				<Text id="_IDGenText4"  text="{/Dni}"/>
+				<Label id="_IDGenLabel5" text="{= ${/_type} === 'autonomo' ? ${i18n>precioDiario} : ${i18n>salarioBrutoAnual}}"/>
+				<Text id="_IDGenText5"  text="{/_Salary}"/>
+				<Label id="_IDGenLabel6" text="{i18n>fechaIncorporacion}"/>
+				<Text id="_IDGenText6"  text="{path:'/CreationDate',type:'sap.ui.model.type.Date'}"/>
+				<Link id="_IDGenLink2" press="editStepTwo" text="{i18n>editar}" />
+			</form:content>
+		</form:SimpleForm>
+		
+		<form:SimpleForm id="_IDGenSimpleForm3"
+				title="3. {i18n>infoAdicional}"
+				minWidth="1024"
+				editable="false"
+				layout="ResponsiveGridLayout">
+			<form:content>
+				<Label id="_IDGenLabel7" text="{i18n>comentario}"/>
+				<Text id="_IDGenText7" text="{/Comments}"/>
+				<Label id="_IDGenLabel8" text="{i18n>documentos}"/>
+				<Text id="_IDGenText8" text="{/_numFiles} {i18n>ficheros}"/>
+				<Label id="_IDGenLabel9"></Label>
+				<List id="_IDGenList1" items="{/_files}">
+					<items>
+						<StandardListItem id="_IDGenStandardListItem1" title="{DocName}"></StandardListItem>
+					</items>
+				</List>
+				<Link id="_IDGenLink3" press="editStepThree" text="{i18n>editar}" />
+			</form:content>
+		</form:SimpleForm>
+		
+</core:FragmentDefinition>
